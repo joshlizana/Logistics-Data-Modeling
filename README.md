@@ -36,6 +36,21 @@ Raw Data (CSV) → DuckDB → dbt (staging + marts) → Evidence (dashboards)
 
 Detail pages (3, 5, 10) use client-side dropdown selectors — all data is embedded at build time, no server-side rendering required.
 
+## Minimum Requirements
+
+| Tool       | Minimum Version | Recommended |
+|------------|-----------------|-------------|
+| Git        | 2.x+            | 2.47+       |
+| Python     | 3.9+            | 3.13+       |
+| Node.js    | 18.x+           | 20.x LTS    |
+| npm        | 7.x+            | 10.x+       |
+| OS         | macOS, Windows 10+, or Linux (Ubuntu 20.04+, Fedora 36+) | |
+| Disk Space | ~500 MB (dependencies + database + build output) | |
+
+**Windows only:** [Microsoft Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe) is required.
+
+> **Note:** Python, dbt, and DuckDB are installed automatically inside a virtual environment by the init script. You only need Python itself pre-installed.
+
 ## Quick Start
 
 ### 1. Prerequisites
@@ -58,7 +73,11 @@ brew install git python node
 - **Node.js:** Download and install from https://nodejs.org (LTS version recommended)
 - **Microsoft Visual C++ Redistributable:** Download and install from https://aka.ms/vs/17/release/vc_redist.x64.exe
 
-After installation, restart your terminal.
+After installation, restart your terminal, then enable PowerShell script execution:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
 </details>
 
 <details>
