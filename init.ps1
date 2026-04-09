@@ -55,7 +55,7 @@ if (-not (Test-Path "venv")) {
 
 Write-Host "    Installing Python dependencies..."
 python -m pip install --quiet --upgrade pip
-python -m pip install --quiet dbt-core dbt-duckdb duckdb
+python -m pip install --quiet dbt-core dbt-duckdb duckdb pandas numpy scikit-learn
 
 # ── 2. Rebuild DuckDB database ────────────────────────────────────────────────
 Write-Host ""

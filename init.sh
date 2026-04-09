@@ -55,7 +55,7 @@ source venv/bin/activate
 
 echo "    Installing Python dependencies..."
 pip install --quiet --upgrade pip
-pip install --quiet dbt-core dbt-duckdb duckdb
+pip install --quiet dbt-core dbt-duckdb duckdb pandas numpy scikit-learn
 
 # ── 2. Rebuild DuckDB database ────────────────────────────────────────────────
 echo ""
