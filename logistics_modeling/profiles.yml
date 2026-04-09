@@ -1,0 +1,7 @@
+logistics_modeling:
+  outputs:
+    dev:
+      type: duckdb
+      path: '../data/logistics.duckdb'
+      threads: 4
+  target: dev
