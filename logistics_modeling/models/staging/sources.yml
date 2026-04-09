@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: logistics
+    database: logistics
+    schema: main
+    tables:
+      - name: drivers
+      - name: trucks
+      - name: trailers
+      - name: customers
+      - name: facilities
+      - name: routes
+      - name: regions
+      - name: lanes
+      - name: loads
+      - name: trips
+      - name: fuel_purchases
+      - name: delivery_events
+      - name: maintenance_records
+      - name: safety_incidents
+      - name: driver_monthly_metrics
+      - name: truck_utilization_metrics
+      - name: cities

@@ -1,0 +1,4 @@
+name: logistics
+type: duckdb
+options:
+  filename: logistics.duckdb
