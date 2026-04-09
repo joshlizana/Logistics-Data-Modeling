@@ -20,10 +20,6 @@ dbt_packages/
 logs/
 dbt_modules/
 
-# DuckDB
-*.duckdb
-*.duckdb.wal
-
 # Data files (uncomment if you want to track CSV files in version control)
 data/*.csv
 data/*.parquet
