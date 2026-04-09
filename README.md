@@ -40,26 +40,31 @@ Detail pages (3, 5, 10) use client-side dropdown selectors — all data is embed
 
 ### 1. Prerequisites
 
-Install **Node.js (>= 18)** and **npm (>= 7)** if not already installed.
+Install **Git** and **Node.js (>= 18)** if not already installed.
 
 <details>
 <summary>macOS</summary>
 
 ```bash
-brew install node
+brew install git node
 ```
 </details>
 
 <details>
 <summary>Windows</summary>
 
-Download and run the Node.js installer from https://nodejs.org (LTS version recommended). The installer includes npm. After installation, restart your terminal.
+- **Git:** Download and install from https://git-scm.com/download/win
+- **Node.js:** Download and install from https://nodejs.org (LTS version recommended)
+
+After installation, restart your terminal.
 </details>
 
 <details>
 <summary>Linux (Ubuntu/Debian)</summary>
 
 ```bash
+sudo apt-get update
+sudo apt-get install -y git
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
 sudo apt-get install -y nodejs
 ```
@@ -69,6 +74,7 @@ sudo apt-get install -y nodejs
 <summary>Linux (Fedora/RHEL)</summary>
 
 ```bash
+sudo dnf install -y git
 curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo bash -
 sudo dnf install -y nodejs
 ```
@@ -77,6 +83,7 @@ sudo dnf install -y nodejs
 Verify on any platform:
 
 ```bash
+git --version    # should show 2.x+
 node --version   # should show v18+
 npm --version    # should show 7+
 ```
