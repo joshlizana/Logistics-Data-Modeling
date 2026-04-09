@@ -36,99 +36,73 @@ Raw Data (CSV) → DuckDB → dbt (staging + marts) → Evidence (dashboards)
 
 Detail pages (3, 5, 10) use client-side dropdown selectors — all data is embedded at build time, no server-side rendering required.
 
-## Prerequisites
+## Quick Start
 
-### Node.js (>= 18) and npm (>= 7)
+### 1. Prerequisites
 
-**macOS:**
+Install **Node.js (>= 18)** and **npm (>= 7)** if not already installed.
+
+<details>
+<summary>macOS</summary>
 
 ```bash
-# Using Homebrew
 brew install node
 ```
+</details>
 
-**Windows:**
+<details>
+<summary>Windows</summary>
 
 Download and run the Node.js installer from https://nodejs.org (LTS version recommended). The installer includes npm. After installation, restart your terminal.
+</details>
 
-**Linux (Ubuntu/Debian):**
+<details>
+<summary>Linux (Ubuntu/Debian)</summary>
 
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
 sudo apt-get install -y nodejs
 ```
+</details>
 
-**Linux (Fedora/RHEL):**
+<details>
+<summary>Linux (Fedora/RHEL)</summary>
 
 ```bash
 curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo bash -
 sudo dnf install -y nodejs
 ```
+</details>
 
-Verify installation on any platform:
+Verify on any platform:
 
 ```bash
-node --version   # should show v18+ 
+node --version   # should show v18+
 npm --version    # should show 7+
 ```
 
-## Install
+### 2. Clone, Build, and Launch
 
 ```bash
-cd evidence-app
+git clone https://github.com/joshlizana/Logistics-Data-Modeling.git
+cd Logistics-Data-Modeling/evidence-app
 npm install
-```
-
-## Build
-
-Evidence compiles the dashboard pages against the DuckDB database and generates a static site.
-
-**macOS / Linux:**
-
-```bash
-cd evidence-app
 npm run sources
 npm run build
-```
-
-**Windows (Command Prompt):**
-
-```cmd
-cd evidence-app
-npm run sources
-npm run build
-```
-
-**Windows (PowerShell):**
-
-```powershell
-cd evidence-app
-npm run sources
-npm run build
-```
-
-The build commands are identical across platforms — npm handles the differences.
-
-## Viewing the Production Site
-
-The build output is a SvelteKit SPA. Pages require a web server and cannot be opened directly from the filesystem as local files.
-
-After building, serve the static site:
-
-```bash
-cd evidence-app
 npx serve build
 ```
 
-Then open your browser to **http://localhost:3000**.
+Open your browser to **http://localhost:3000**.
 
-To specify a different port:
+### Options
+
+Specify a different port:
 
 ```bash
 npx serve build -l 4000
 ```
 
-To allow access from other machines on your network:
+Allow access from other machines on your network:
 
 ```bash
 npx serve build -l tcp://0.0.0.0:3000
@@ -191,4 +165,3 @@ dbt-project/
 - `visualizations.md` — Full specification for all 13 dashboard pages including queries, charts, and design decisions
 - `mart_models.md` — Data mart layer design and model documentation
 - `staging_tables.md` — Staging table definitions and source mappings
-# Logistics-Data-Modeling
