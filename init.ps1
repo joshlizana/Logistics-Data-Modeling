@@ -54,8 +54,8 @@ if (-not (Test-Path "venv")) {
 & "$ProjectDir\venv\Scripts\Activate.ps1"
 
 Write-Host "    Installing Python dependencies..."
-pip install --quiet --upgrade pip
-pip install --quiet dbt-core dbt-duckdb duckdb
+python -m pip install --quiet --upgrade pip
+python -m pip install --quiet dbt-core dbt-duckdb duckdb
 
 # ── 2. Rebuild DuckDB database ────────────────────────────────────────────────
 Write-Host ""

@@ -45,7 +45,7 @@ Detail pages (3, 5, 10) use client-side dropdown selectors — all data is embed
 | Node.js    | 18.x+           | 20.x LTS    |
 | npm        | 7.x+            | 10.x+       |
 | OS         | macOS, Windows 10+, or Linux (Ubuntu 20.04+, Fedora 36+) | |
-| Disk Space | ~500 MB (dependencies + database + build output) | |
+| Disk Space | ~1.5 GB (dependencies + database + build output) | |
 
 **Windows only:** [Microsoft Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe) is required.
 
