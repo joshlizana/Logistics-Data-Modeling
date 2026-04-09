@@ -25,6 +25,10 @@ data/*.csv
 data/*.parquet
 data/*.json
 
+# DuckDB (rebuilt by init script)
+*.duckdb
+*.duckdb.wal
+
 # IDE
 .vscode/
 .idea/

@@ -40,13 +40,13 @@ Detail pages (3, 5, 10) use client-side dropdown selectors — all data is embed
 
 ### 1. Prerequisites
 
-Install **Git** and **Node.js (>= 18)** if not already installed.
+Install **Git**, **Python 3 (>= 3.9)**, and **Node.js (>= 18)** if not already installed.
 
 <details>
 <summary>macOS</summary>
 
 ```bash
-brew install git node
+brew install git python node
 ```
 </details>
 
@@ -54,7 +54,9 @@ brew install git node
 <summary>Windows</summary>
 
 - **Git:** Download and install from https://git-scm.com/download/win
+- **Python 3:** Download and install from https://www.python.org/downloads/ (check "Add to PATH")
 - **Node.js:** Download and install from https://nodejs.org (LTS version recommended)
+- **Microsoft Visual C++ Redistributable:** Download and install from https://aka.ms/vs/17/release/vc_redist.x64.exe
 
 After installation, restart your terminal.
 </details>
@@ -64,7 +66,7 @@ After installation, restart your terminal.
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y git
+sudo apt-get install -y git python3 python3-venv
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
 sudo apt-get install -y nodejs
 ```
@@ -74,7 +76,7 @@ sudo apt-get install -y nodejs
 <summary>Linux (Fedora/RHEL)</summary>
 
 ```bash
-sudo dnf install -y git
+sudo dnf install -y git python3
 curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo bash -
 sudo dnf install -y nodejs
 ```
@@ -83,37 +85,41 @@ sudo dnf install -y nodejs
 Verify on any platform:
 
 ```bash
-git --version    # should show 2.x+
-node --version   # should show v18+
-npm --version    # should show 7+
+git --version      # should show 2.x+
+python3 --version  # should show 3.9+
+node --version     # should show v18+
+npm --version      # should show 7+
 ```
 
-### 2. Clone, Build, and Launch
+### 2. Clone and Run
+
+**macOS / Linux:**
 
 ```bash
 git clone https://github.com/joshlizana/Logistics-Data-Modeling.git
-cd Logistics-Data-Modeling/evidence-app
-npm install
-npm run sources
-npm run build
-npx serve build
+cd Logistics-Data-Modeling
+./init.sh
 ```
 
-Open your browser to **http://localhost:3000**.
+**Windows (PowerShell):**
 
-### Options
-
-Specify a different port:
-
-```bash
-npx serve build -l 4000
+```powershell
+git clone https://github.com/joshlizana/Logistics-Data-Modeling.git
+cd Logistics-Data-Modeling
+.\init.ps1
 ```
 
-Allow access from other machines on your network:
+The script handles everything automatically and opens the dashboard at **http://localhost:3000** when done.
 
-```bash
-npx serve build -l tcp://0.0.0.0:3000
-```
+Under the hood it will:
+1. Verify that all prerequisites are installed
+2. Create a Python virtual environment and install dependencies (dbt, duckdb)
+3. Rebuild the DuckDB database from raw CSVs
+4. Run all dbt models (staging → intermediate → marts)
+5. Link the database into the Evidence source directory
+6. Install Evidence npm dependencies
+7. Build the Evidence dashboard
+8. Serve the production site on port 3000
 
 ## Development
 
@@ -130,6 +136,8 @@ This opens the site at `http://localhost:3000` with live reloading as you edit t
 
 ```
 dbt-project/
+├── init.sh                            ← Setup script for macOS/Linux
+├── init.ps1                           ← Setup script for Windows
 ├── config/
 │   └── clustering.json               ← Data clustering configuration
 ├── data/
